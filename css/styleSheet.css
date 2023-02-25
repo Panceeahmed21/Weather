@@ -1,0 +1,126 @@
+body {
+    background: #1e202b;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+
+h1 {
+    font-size: medium;
+}
+nav {
+    color: white !important;
+}
+nav a {
+    color: white !important;
+}
+nav p {
+    font-size: xx-small;
+}
+
+nav .logo {
+    width: 40%;
+}
+.container .form{
+    width: 90%;
+    left: 6%;
+}
+.middle-img {
+    background-image: url(../images/banner.png);
+    background-position: center;
+    background-size:cover;
+    background-repeat: no-repeat;
+    height: 50vh;
+}
+.middleInput{
+    background-color: #1e202b;
+    border-color: #1e202b;}
+input::placeholder{
+    color: rgb(136, 133, 133)   !important ;
+    font-size:small;
+}
+.form-control:focus{
+background-color: #1e202b;
+box-shadow: none;
+border-color: #1e202b;
+color: rgb(136, 133, 133)   !important ;
+}
+.btnForm{
+    background-color:#009ad8;
+    right: 3%;
+    
+}
+.btnForm:hover{
+    
+    background-color:#009ad8;
+}
+.card
+{
+    background-color:#2b2d41;
+    color: rgb(181, 179, 179) ;
+    border: 0;
+    
+}
+.degree{
+    font-size: 5rem;
+}
+.vipCard{
+    background-color:#1a1b27;
+}
+.status{
+    color: #009ad8;
+}
+.img-middle{
+    width: 12%;
+}
+.footerHome{
+    background-color:#2b2d41;
+    width: 100%;
+}
+
+.footerHome i{
+    color: #009ad8
+
+}
+.footerHome a{
+    background-color: #1a1b27;
+    border-radius: 50%;
+    
+}
+.footerParag{
+       color: rgb(181, 179, 179) ;
+}
+.nav-item .active{
+    border: 2px solid #009ad8;
+    color: #009ad8 ;
+    border-radius: 30px;
+
+}
+.nav-item{
+    transition: all 1s;
+}
+.nav-item :hover{
+    border: 2px solid #009ad8;
+    color: #009ad8 !important;
+    border-radius: 30px;
+
+}
+.nav-item .active {
+    color: #009ad8 !important;
+}
+.footerHome i:hover{
+    color: white;
+   
+}
+
+@media screen and (min-width: 454px) and (max-width: 768px){
+    .formEnd{
+        margin-bottom: 1rem;
+    }
+    .icons{
+  
+        margin-bottom: 1rem;
+}
+}
