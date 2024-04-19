@@ -179,40 +179,40 @@ cartona +=`
 document.getElementById("nextDay_card").innerHTML=cartona
 }
 
-// function displayAfterNext(afterNextObj){
+function displayAfterNext(afterNextObj){
   
-//     let indexDay = new Date(afterNextObj.date).getDay()
+    let indexDay = new Date(afterNextObj.date).getDay()
 
-//     let cartona = ``
+    let cartona = ``
 
-//     cartona +=`
+    cartona +=`
     
-//     <div class="card">
-//     <div class="card-header p-0 px-2 pt-1">
-//       <div class="d-flex justify-content-center">
-//         <p class="afterNextDay">${days[indexDay]}</p>
-//       </div>
-//     </div>
-//     <div class="card-body py-5">
-//       <div class="d-flex flex-column align-items-center">
-//         <img
-//           id="afterNextDay_icon"
-//           src=${afterNextObj.day.condition.icon}
-//           class="img-fluid mb-3"
-//           alt=""
-//           srcset=""
-//         />
-//         <h4 class="text-white" id="afterNext_max_temp">
-//         ${afterNextObj.day.maxtemp_c}<sup>o</sup>C
-//         </h4>
-//         <span class="text-white" id="afterNext_min_temp"
-//           > ${afterNextObj.day.mintemp_c}<sup>o</sup></span
-//         >
-//         <span class="custom mt-4" id="afterNext_status">${afterNextObj.day.condition.text}</span>
-//       </div>
-//     </div>
-//   </div>
+    <div class="card">
+    <div class="card-header p-0 px-2 pt-1">
+      <div class="d-flex justify-content-center">
+        <p class="afterNextDay">${days[indexDay]}</p>
+      </div>
+    </div>
+    <div class="card-body py-5">
+      <div class="d-flex flex-column align-items-center">
+        <img
+          id="afterNextDay_icon"
+          src=${afterNextObj.day.condition.icon}
+          class="img-fluid mb-3"
+          alt=""
+          srcset=""
+        />
+        <h4 class="text-white" id="afterNext_max_temp">
+        ${afterNextObj.day.maxtemp_c}<sup>o</sup>C
+        </h4>
+        <span class="text-white" id="afterNext_min_temp"
+          > ${afterNextObj.day.mintemp_c}<sup>o</sup></span
+        >
+        <span class="custom mt-4" id="afterNext_status">${afterNextObj.day.condition.text}</span>
+      </div>
+    </div>
+  </div>
     
-//     `
-//     document.getElementById("afterNextDay_card").innerHTML=cartona 
-// }
+    `
+    document.getElementById("afterNextDay_card").innerHTML=cartona 
+}
