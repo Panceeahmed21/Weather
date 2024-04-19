@@ -214,5 +214,5 @@ function displayAfterNext(afterNextObj){
   </div>
     
     `
-    document.getElementById("afterNextDay_card").innerHTML=cartona
+    document.getElementById("afterNextDay_card").innerHTML=cartona 
 }
