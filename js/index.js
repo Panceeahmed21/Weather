@@ -19,7 +19,8 @@ let afterNextDay_icon = document.getElementById("afterNextDay_icon");
 let afterNext_max_temp = document.getElementById("afterNext_max_temp");
 let afterNext_min_temp = document.getElementById("afterNext_min_temp");
 let afterNext_status = document.getElementById("afterNext_status");
-
+const DEFAULT_CITY = 'Cairo'
+const GEO_TIMEOUT_MS = 6000
 let days = [
   "Sunday",
   "Monday",
@@ -52,7 +53,11 @@ console.log(dayName);
 search_input.addEventListener("keyup", function () {
   fetchApi(search_input.value);
 });
-
+navigator.geolocation?.getCurrentPosition(
+  ({ coords: { latitude, longitude } }) => fetchApi(`${latitude},${longitude}`),
+  () => fetchApi('Cairo'),
+  { timeout: 6000 }
+);
 async function fetchApi(city) {
   let data = await fetch(
     `https://api.weatherapi.com/v1/forecast.json?key=20b5423eb47a45d185984307232402&q=${city}&days=3`
@@ -64,7 +69,22 @@ async function fetchApi(city) {
   console.log(res);
 }
 
-fetchApi("cairo");
+initLocation();
+
+
+function initLocation() {
+  const fallback = 'Cairo';
+  if (!navigator.geolocation) { fetchApi(fallback); return; }
+  navigator.geolocation.getCurrentPosition(
+    ({ coords: { latitude, longitude } }) => fetchApi(`${latitude},${longitude}`),
+    () => fetchApi(fallback),
+    { timeout: 6000 }
+  );
+}
+
+
+
+
 
 function displayCurrent(current, city) {
   let cartona = ``;
@@ -136,20 +156,20 @@ function displayCurrent(current, city) {
 }
 
 function displayNextDay(nextDayObj) {
-  
-console.log(nextDayObj);
 
-let obj = new Date()
-console.log(obj);
+  console.log(nextDayObj);
 
-let dayIndex = new Date(nextDayObj.date).getDay()
-console.log(days[dayIndex]);
+  let obj = new Date()
+  console.log(obj);
+
+  let dayIndex = new Date(nextDayObj.date).getDay()
+  console.log(days[dayIndex]);
 
 
-let cartona = `
+  let cartona = `
 `
 
-cartona +=`
+  cartona += `
 
 <div class="card sec_card">
 <div class="card-header p-0 px-2 pt-1">
@@ -176,16 +196,16 @@ cartona +=`
 </div>
 `
 
-document.getElementById("nextDay_card").innerHTML=cartona
+  document.getElementById("nextDay_card").innerHTML = cartona
 }
 
-function displayAfterNext(afterNextObj){
-  
-    let indexDay = new Date(afterNextObj.date).getDay()
+function displayAfterNext(afterNextObj) {
 
-    let cartona = ``
+  let indexDay = new Date(afterNextObj.date).getDay()
 
-    cartona +=`
+  let cartona = ``
+
+  cartona += `
     
     <div class="card">
     <div class="card-header p-0 px-2 pt-1">
@@ -214,5 +234,5 @@ function displayAfterNext(afterNextObj){
   </div>
     
     `
-    document.getElementById("afterNextDay_card").innerHTML=cartona 
+  document.getElementById("afterNextDay_card").innerHTML = cartona
 }
